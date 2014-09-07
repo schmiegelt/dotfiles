@@ -75,11 +75,12 @@ function precmd() {
 
 ### Prompt
 # adapted from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+local SEGMENT_SEPARATOR="\ue0b0"
 function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 export smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
-export PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}:%{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%} $smiley »'
+export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)'
 
 ### Alias
 alias grep='grep --color=auto'
