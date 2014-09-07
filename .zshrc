@@ -84,3 +84,4 @@ export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(ech
 
 ### Alias
 alias grep='grep --color=auto'
+alias ls='ls -lah --color=auto'
