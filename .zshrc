@@ -89,5 +89,4 @@ export smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
 export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)'
 
 ### Alias
-alias grep='grep --color=auto'
-alias ls='ls -lah --color=auto'
+source .aliases
