@@ -4,23 +4,29 @@ colors
 
 
 ### Completion
+autoload -U compinit
+compinit
+
+
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' glob 1
 zstyle ':completion:*' max-errors 2
 
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:descriptions' format "%F{cyan}%U%B%d%b%u%{$reset_color%}"
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 zstyle ':completion:*' menu select
 
 zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
 
-setopt completealiases
-zstyle :compinstall filename '/home/philip/.zshrc'
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:manuals' separate-sections true
 
-autoload -U compinit
-compinit
+setopt completealiases
+
 
 #Not having to type "cd" to change directory
 setopt AUTO_CD
