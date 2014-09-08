@@ -1,9 +1,16 @@
+###########################
+#
 ### Colors
+#
+###########################
 autoload -U colors
 colors
 
-
+###########################
+#
 ### Completion
+#
+###########################
 autoload -U compinit
 compinit
 
@@ -28,12 +35,22 @@ zstyle ':completion:*:manuals' separate-sections true
 setopt completealiases
 
 
+###########################
+#
+### Options
+#
+###########################
+
 #Not having to type "cd" to change directory
 setopt AUTO_CD
 
+###########################
+#
+### History
+#
+###########################
 
 
-### history
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -47,10 +64,15 @@ bindkey -v
 ### correction
 setopt correctall
 
-### prompt
-autoload -U promptinit
-promptinit
-#prompt redhat
+
+###########################
+#
+### Functions
+#
+###########################
+
+
+
 
 ### Prepend sudo at commantline at double escape
 #taken from:  oh-my-zsh/plugins/sudo/sudo.plugin.zsh
@@ -62,6 +84,18 @@ sudo-command-line() {
 zle -N sudo-command-line
 # Defined shortcut keys: [Esc] [Esc]
 bindkey "\e\e" sudo-command-line
+
+
+###########################
+#
+### Prompt
+#
+###########################
+
+autoload -U promptinit
+promptinit
+#prompt redhat
+
 
 ### r prompt
 setopt prompt_subst
@@ -79,7 +113,7 @@ function precmd() {
 
 
 
-### Prompt
+### l Prompt
 # adapted from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
 local SEGMENT_SEPARATOR="\ue0b0"
 function collapse_pwd {
@@ -88,5 +122,10 @@ function collapse_pwd {
 export smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
 export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)'
 
-### Alias
+###########################
+#
+### Appendix
+#
+###########################
+
 source .aliases
