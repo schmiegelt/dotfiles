@@ -128,4 +128,4 @@ export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(ech
 #
 ###########################
 
-source .aliases
+source ~/.aliases
