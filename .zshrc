@@ -99,6 +99,14 @@ promptinit
 
 ### r prompt
 setopt prompt_subst
+
+function git_dirty {
+	counter=$(git -C $(pwd) status --porcelain 2> /dev/null |grep --count M)
+	if [ $counter != "0" ]; then
+		echo " (Modified: $counter)"
+	fi
+}
+
 ### Add time to promt
 #taken from https://coderwall.com/p/kmchbw 
 function preexec() { 
@@ -106,11 +114,10 @@ function preexec() {
 } 
 function precmd() { 
   if [ $timer ]; then timer_show=$(($SECONDS - $timer)) 
-     export RPROMPT="%F{cyan}(${timer_show}s) %{$reset_color%}"
+     export RPROMPT="%F{cyan}(${timer_show}s)$(git_dirty) %{$reset_color%}"
      unset timer 
   fi 
 }
-
 
 
 ### l Prompt
