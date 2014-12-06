@@ -21,7 +21,7 @@ zstyle ':completion:*' glob 1
 zstyle ':completion:*' max-errors 2
 
 zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:descriptions' format "%F{cyan}%U%B%d%b%u%{$reset_color%}"
+zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 zstyle ':completion:*' menu select
@@ -127,7 +127,7 @@ function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 export smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
-export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)'
+export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)%{$reset_color%}'
 
 ###########################
 #
