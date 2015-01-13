@@ -122,12 +122,12 @@ function precmd() {
 
 ### l Prompt
 # adapted from http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-local SEGMENT_SEPARATOR="\ue0b0"
+local SEGMENT_SEPARATOR=""
 function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
-export smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
-export PROMPT='%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)%{$reset_color%}'
+export smiley="%(?,%F{green}OK%f,%F{red}ERROR%f)"
+export PROMPT='[%{$fg[black]%}%{$bg[green]%}%n@%m%{$fg[green]%}%{$bg[cyan]%}$(echo $SEGMENT_SEPARATOR)%{$fg[black]%}%{$bg[cyan]%}$(collapse_pwd) $smiley %{$fg[cyan]%}%{$bg[black]%}$(echo $SEGMENT_SEPARATOR)%{$reset_color%}]'
 
 ###########################
 #
